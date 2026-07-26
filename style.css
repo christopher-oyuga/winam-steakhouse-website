@@ -61,7 +61,7 @@ nav {
 }
 
 .logo-img {
-    width: 180px;              /* Smaller logo */
+    width: 350px;              /* best logo */
     height: auto;
     display: block;
     margin-bottom: 0px;
@@ -104,30 +104,6 @@ nav ul li a:hover {
     color: #d88509;
 }
 
-/* ================= RESPONSIVE DESIGN ================= */
-
-@media (max-width: 768px) {
-    nav {
-        flex-direction: column;
-        gap: 20px;
-    }
-
-    nav ul {
-        flex-wrap: wrap;
-        justify-content: center;
-        gap: 15px;
-    }
-
-    .logo-img {
-        width: 55px;
-    }
-
-    .logo {
-        font-size: 22px;
-    }
-}
-
-
 
 
 /* NAVIGATION LINKS */
@@ -147,6 +123,16 @@ nav a:hover{
 color:#d4af37;
 }
 
+
+#reserveMessage{
+
+    margin-top:15px;
+    color:#f0f0ef;
+    font-style:italic;
+    font-size:10px;
+    display:none;
+
+}
 
 /* ================= HERO ================= */
 
@@ -211,7 +197,6 @@ color:#d4af37;
     object-fit:contain;
 }
 /* Main steak */
-/* Main steak */
 .steak{
     width:400px;
     top:80px;
@@ -219,7 +204,6 @@ color:#d4af37;
     z-index:2;
 }
 
-/* Salt - larger and below the steak */
 /* Salt - move up */
 .salt{
     width:210px;
@@ -261,14 +245,13 @@ color:#d4af37;
 }
 
 /* ================= rotation ================= */
+@media(min-width:769px){
 
 .hero-image img{
-    position:absolute;
-    object-fit:contain;
     animation:ingredientIn 2s ease forwards;
-    transform-origin:center;
 }
 
+}
 @keyframes ingredientIn{
 
     0%{
@@ -291,6 +274,47 @@ color:#d4af37;
     }
 }
 
+
+
+/* ================= HERO IMAGE ENTRY ANIMATION ================= */
+
+
+@keyframes ingredientIn{
+
+    0%{
+
+        opacity:0;
+
+        transform:translateY(-40px) rotate(-25deg) scale(.7);
+
+    }
+
+
+    40%{
+
+        opacity:1;
+
+        transform:translateY(10px) rotate(15deg) scale(1.05);
+
+    }
+
+
+    70%{
+
+        transform:translateY(-5px) rotate(-8deg);
+
+    }
+
+
+    100%{
+
+        opacity:1;
+
+        transform:translateY(0) rotate(0deg) scale(1);
+
+    }
+
+}
 /* ================= ABOUT SECTION ================= */
 
 .about{
@@ -481,19 +505,21 @@ color:#d4af37;
     transform:translateX(8px);
 }
 
-/* ================= GENERAL SECTIONS ================= */
 
+/* ================= ABOUT SECTION ================= */
 
-section{
-padding:80px 8%;
-text-align:center;
+.about{
+    width:100%;
+    min-height:auto;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    gap:70px;
+    padding:60px 8%;
 }
 
-section h2{
-color:#d4af37;
-font-size:40px;
-margin-bottom:25px;
-}
+
+/* ================= LEFT IMAGE ================= */
 
 .about-image{
     flex:1;
@@ -502,22 +528,31 @@ margin-bottom:25px;
     align-items:center;
 }
 
-/* Main image */
-.main-img{
-    width:420px;          /* Keep the same size */
+.about-image img{
+    width:420px;
+    max-width:100%;
     border-radius:25px;
     object-fit:cover;
     box-shadow:0 15px 40px rgba(0,0,0,.35);
+}
+
+/* Main image */
+
+.main-img{
+    width:420px;
+    max-width:100%;
     margin-bottom:20px;
 }
 
-/* Container for the small images */
+/* Small gallery */
+
 .small-images{
     display:flex;
     gap:15px;
+    justify-content:center;
+    flex-wrap:wrap;
 }
 
-/* Small images */
 .small-images img{
     width:110px;
     height:90px;
@@ -531,34 +566,236 @@ margin-bottom:25px;
     transform:translateY(-6px);
 }
 
-@keyframes ingredientIn{
+/* ================= RIGHT CONTENT ================= */
 
-    0%{
-        opacity:0;
-        transform:translateY(-40px) rotate(-25deg) scale(.7);
-    }
+.about-content{
+    flex:1;
+}
 
-    40%{
+.about-content h3{
+    color:#d88509;
+    font-size:18px;
+    letter-spacing:3px;
+    margin-bottom:10px;
+}
+
+.about-content h2{
+    color:white;
+    font-size:50px;
+    margin-bottom:25px;
+}
+
+/* ================= STORY CARD ================= */
+
+.story-box{
+    position:relative;
+    background:#fff;
+    width:650px;
+    max-width:100%;
+    min-height:350px;
+    padding:35px 45px;
+    color:#333;
+    line-height:1.7;
+    overflow:visible;
+}
+
+/* Floating image */
+
+.story-image{
+    position:absolute;
+    top:-35px;
+    left:-35px;
+    width:120px;
+    height:120px;
+    object-fit:cover;
+    border-radius:12px;
+    border:1px solid #ceb01e;
+    box-shadow:0 10px 30px rgba(0,0,0,1);
+
+    opacity:0;
+    transform:translateY(-20px);
+}
+
+/* Animation */
+
+.story-image.show{
+    opacity:1;
+    animation:shake .8s ease, fadeIn .8s forwards;
+}
+
+@keyframes shake{
+
+    0%{transform:translateY(-20px) rotate(0);}
+    20%{transform:translateY(-20px) rotate(-5deg);}
+    40%{transform:translateY(-20px) rotate(5deg);}
+    60%{transform:translateY(-20px) rotate(-4deg);}
+    80%{transform:translateY(-20px) rotate(4deg);}
+    100%{transform:translateY(0) rotate(0);}
+}
+
+@keyframes fadeIn{
+
+    to{
         opacity:1;
-        transform:translateY(10px) rotate(15deg) scale(1.05);
-    }
-
-    70%{
-        transform:translateY(-5px) rotate(-8deg);
-    }
-
-    100%{
-        opacity:1;
-        transform:translateY(0) rotate(0deg) scale(1);
+        transform:translateY(0);
     }
 }
-/* ================= MENU CARDS ================= */
-.menu{
-    padding:100px 8%;
-    background:#000000;
+
+/* Story text */
+
+.story-box h3{
+    color:#d88509;
+    font-family:"Dancing Script",cursive;
+    font-size:15px;
+    font-weight:bold;
+    letter-spacing:3px;
+    margin-bottom:8px;
+}
+
+.story-box h2{
+    color:#000;
+    font-style:italic;
+    font-size:28px;
+    margin-bottom:18px;
+}
+
+.story-box p{
+    font-size:13px;
+    font-style:italic;
+    margin-bottom:20px;
+}
+
+/* Folded corner */
+
+.story-box::after{
+    content:"";
+    position:absolute;
+    right:0;
+    bottom:0;
+    width:200px;
+    height:180px;
+    background:#c9d8b8;
+    clip-path:polygon(100% 0,100% 100%,0 100%);
+}
+
+/* ================= MENU BUTTON ================= */
+
+.menu-btn{
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
+    margin-top:25px;
+    padding:3px 10px;
+    color:#222;
+    text-decoration:none;
+    border:1px solid #d88509;
+    border-radius:30px;
+    font-size:12px;
+    font-weight:bold;
+    transition:.4s;
+}
+
+.menu-btn span{
+    font-size:18px;
+    transition:.4s;
+}
+
+.menu-btn:hover{
+    background:#d88509;
     color:#fff;
 }
 
+.menu-btn:hover span{
+    transform:translateX(8px);
+}
+
+/* ================= MOBILE RESPONSIVE ================= */
+
+@media (max-width:768px){
+
+    .about{
+        flex-direction:column;
+        gap:35px;
+        padding:60px 5%;
+        min-height:auto;
+    }
+
+    .about-content{
+        order:1;
+        width:100%;
+    }
+
+    .about-image{
+        order:2;
+        width:100%;
+    }
+
+    .story-box{
+        width:100%;
+        max-width:100%;
+        min-height:auto;
+        padding:30px 20px 45px;
+        text-align:center;   /* ADD THIS */
+    }
+
+    .story-box h3,
+    .story-box h2{
+        text-align:center;   /* ADD THIS */
+    }
+
+    .story-box p{
+        font-size:14px;
+        line-height:1.8;
+        text-align:center;   /* ADD THIS */
+    }
+
+    .story-box::after{
+        width:120px;
+        height:120px;
+    }
+
+    .story-image{
+        width:85px;
+        height:85px;
+        top:-15px;
+        left:-10px;
+    }
+
+    .story-box h2{
+        font-size:24px;
+    }
+
+    .menu-btn{
+        font-size:12px;
+    }
+
+    .main-img{
+        width:80%;
+        max-width:380px;
+        border-radius:20px;
+    }
+
+    .small-images{
+        width:100%;
+        justify-content:center;
+        gap:10px;
+        margin-top:15px;
+    }
+
+    .small-images img{
+        width:30%;
+        min-width:80px;
+        max-width:110px;
+        height:80px;
+    }
+}
+/* ================= MENU CARDS ================= */
+/* MENU SECTION */
+.menu{
+    padding:20px 8% 100px; /* reduce top space */
+    background:#000000;
+    color:#fff;
+}
 /* Header */
 .menu-header{
     display:flex;
@@ -684,6 +921,105 @@ margin-bottom:25px;
 }
 
 
+/* ================= MENU MOBILE RESPONSIVE ================= */
+
+@media(max-width:768px){
+
+    /* space between ABOUT and MENU */
+    .menu{
+        padding:140px 5% 80px;
+    }
+
+
+    /* menu heading */
+    .menu-header{
+
+        flex-direction:column;
+        text-align:center;
+        gap:25px;
+        margin-bottom:40px;
+
+    }
+
+
+    .menu-title h1{
+
+        font-size:26px;
+
+    }
+
+
+    .menu-description p{
+
+        font-size:12px;
+        line-height:1.7;
+
+    }
+
+
+    /* cards layout */
+
+    .menu-gallery{
+
+        display:flex;
+        flex-direction:column;
+        align-items:center;
+        gap:40px;
+
+    }
+
+
+    .menu-card{
+
+        width:280px;
+        max-width:90%;
+    }
+
+
+    .menu-card img{
+
+        height:250px;
+
+    }
+
+
+    .menu-card h2{
+
+        font-size:17px;
+
+    }
+
+
+    .menu-card p{
+
+        font-size:11px;
+
+    }
+
+
+    /* remove scattered desktop movement */
+
+    .steak,
+    .burger,
+    .drinks,
+    .dessert,
+    .chicken,
+    .seafood{
+
+        transform:translateY(0);
+
+    }
+
+
+    /* stop hover jump on phones */
+
+    .menu-card:hover{
+
+        transform:none;
+
+    }
+
+}
 /* ================= EVENTS ================= */
 
 .events{
@@ -797,6 +1133,98 @@ margin-bottom:25px;
     margin-bottom:12px;
 }
 
+/* ================= EVENTS MOBILE RESPONSIVE ================= */
+
+@media(max-width:768px){
+
+    .events{
+        flex-direction:column;
+        gap:35px;
+        padding:50px 5%;
+    }
+
+
+    /* STORY BOX FIRST */
+
+    .events-content{
+        order:1;
+        width:100%;
+    }
+
+
+    /* IMAGE SECOND */
+
+    .events-image{
+        order:2;
+        width:100%;
+        display:flex;
+        justify-content:center;
+    }
+
+
+    .event-box{
+
+        width:100%;
+        min-height:auto;
+        padding:30px 20px 45px;
+        text-align:center;
+
+    }
+
+
+    .event-box h3,
+    .event-box h2{
+
+        text-align:center;
+
+    }
+
+
+    .event-box p{
+
+        text-align:center;
+        font-size:14px;
+        line-height:1.8;
+
+    }
+
+
+    .event-details{
+
+        text-align:center;
+
+    }
+
+
+    .event-details h4,
+    .event-details span{
+
+        text-align:center;
+
+    }
+
+
+    .events-image img{
+
+        width:100%;
+        max-width:380px;
+        height:250px;
+
+    }
+
+
+    /* move dotted corner inside on phones */
+
+    .event-box::after{
+
+        right:-15px;
+        bottom:-15px;
+        width:100px;
+        height:100px;
+
+    }
+
+}
 /* ================= INGREDIENTS SECTION ================= */
 
 
@@ -1059,7 +1487,7 @@ margin-bottom:25px;
 
 
 .contact-info h2{
-    color: #c9d8b8;
+    color: #f4f7f1;
     font-style: italic;
     font-size:28px;
     font-weight:bold;
@@ -1095,23 +1523,39 @@ margin-bottom:25px;
     font-size:20px;
 }
 
+/* CALL NOW BUTTON */
 
-/* BUTTON */
+.call-btn{
 
-.contact button{
+    display:inline-block;
     background:#000000;
     color:#fefefe;
+
     padding:5px 12px;
-    border:none;
-    font-size: 12px;
+
+    border:1px solid white;
+
+    font-size:12px;
+
     border-radius:30px;
+
     font-weight:normal;
+
+    text-decoration:none;
+
     cursor:pointer;
-    transition: 1;
+
+    transition:.4s ease;
+
 }
-.contact button:hover{
-    background: #d88509;
-    color: #050505;
+
+
+.call-btn:hover{
+
+    background:#d88509;
+
+    color:#050505;
+
 }
 
 /* SOCIAL ICONS */
@@ -1131,9 +1575,10 @@ margin-bottom:25px;
     justify-content:center;
     border-radius:50%;
     background:#010101;
-    color:rgb(34, 186, 31);
+    color:rgb(207, 181, 13);
     font-size:20px;
     transition:.3s;
+    text-decoration:none;
 }
 
 
@@ -1156,6 +1601,73 @@ margin-bottom:25px;
     box-shadow:0 15px 35px rgba(0,0,0,.5);
 }
 
+/* ================= CONTACT MOBILE CENTER ================= */
+
+@media(max-width:768px){
+
+    .contact{
+        flex-direction:column;
+        align-items:center;
+        justify-content:center;
+        text-align:center;
+        gap:40px;
+        padding:60px 5%;
+    }
+
+
+    .contact-info{
+        width:100%;
+        text-align:center;
+    }
+
+
+    .contact-info h3,
+    .contact-info h2,
+    .contact-info p{
+        text-align:center;
+    }
+
+
+    .contact-details{
+        display:flex;
+        flex-direction:column;
+        align-items:center;
+        text-align:center;
+    }
+
+
+    .contact-details p{
+        justify-content:center;
+        text-align:center;
+    }
+
+
+    .contact button{
+        margin:auto;
+        display:block;
+    }
+
+
+    .social-icons{
+        justify-content:center;
+        align-items:center;
+    }
+
+
+    .contact-map{
+        width:100%;
+        display:flex;
+        justify-content:center;
+    }
+
+
+    .contact-map iframe{
+        width:100%;
+        max-width:400px;
+        height:300px;
+    }
+
+}
 /* ================= FOOTER ================= */
 
 footer{
@@ -1166,26 +1678,6 @@ font-size: 12px;
 font-style: italic;
 }
 
-
-/* ================= MOBILE RESPONSIVE DESIGN ================= */
-@media(max-width:768px){
-
-nav{
-flex-direction:column;
-gap:20px;
-}
-
-.hero h1{
-font-size:40px;
-}
-
-
-
-.cards{
-flex-direction:column;
-align-items:center;
-}
-}
 
 /* ================= MOBILE NAVIGATION ================= */
 
@@ -1224,19 +1716,25 @@ nav{
 
 /* LOGO */
 
-.logo-img{
+/* ================= MOBILE LOGO ================= */
 
-    width:80px;
-
+.logo-container{
+    width:100%;
+    display:flex;
+    justify-content:center;
+    align-items:center;
 }
 
+.logo-img{
+    width:260px;          /* Bigger logo on phones */
+    max-width:90%;        /* Prevents overflow */
+    height:auto;
+}
 
 .logo{
-
-    font-size:20px;
-
+    font-size:24px;
+    text-align:center;
 }
-
 
 /* HAMBURGER */
 
@@ -1453,118 +1951,6 @@ nav ul li a{
 
 }
 
-/* ================= HERO MOBILE RESPONSIVE ================= */
-@media(max-width:768px){
-
-
-.hero-image{
-
-    display:block;
-
-    width:100%;
-
-    height:350px;
-
-    position:relative;
-
-}
-
-
-.hero-image img{
-
-    position:absolute;
-
-    display:block;
-
-    opacity:1;
-
-}
-
-
-/* STEAK */
-
-.hero-steak{
-
-    width:260px;
-
-    top:40px;
-
-    left:50%;
-
-    transform:translateX(-50%);
-
-}
-
-
-
-/* SALT */
-
-.hero-image .salt{
-
-    width:140px;
-
-    top:170px;
-
-    left:50%;
-
-    transform:translateX(-50%);
-
-}
-
-
-/* SPOON */
-
-.hero-image .spoon{
-
-    width:70px;
-
-    top:170px;
-
-    left:65%;
-
-}
-
-
-/* TOMATO */
-
-.hero-image .tomato{
-
-    width:35px;
-
-    top:190px;
-
-    left:75%;
-
-}
-
-
-/* ONION */
-
-.hero-image .onion{
-
-    width:50px;
-
-    top:90px;
-
-    left:20%;
-
-}
-
-
-/* ROSE */
-
-.hero-image .rose{
-
-    width:50px;
-
-    top:220px;
-
-    left:25%;
-
-}
-
-}
-
 /* CLOSE BUTTON */
 
 .close-menu{
@@ -1585,226 +1971,228 @@ nav ul li a{
 
 }
 
-
-
-@media(max-width:768px){
-
-
-.close-menu{
-
-    display:block;
-
-}
-
-
-}
-
-/* ================= FIX HERO IMAGES ON MOBILE ================= */
+/* ================= FINAL MOBILE MENU ================= */
 
 @media(max-width:768px){
 
-    .hero{
+    /* NAV BAR */
+
+    nav{
+
         display:flex;
-        flex-direction:column;
-        overflow:hidden;
-        padding:40px 5%;
-    }
-
-
-    .hero-image{
-
+        align-items:center;
+        justify-content:space-between;
+        padding:10px 5%;
         position:relative;
 
-        width:100%;
+    }
 
-        height:420px;
 
-        overflow:visible;
+    /* HAMBURGER */
 
-        margin-top:20px;
+    .menu-toggle{
+
+        display:block;
+        color:#d88509;
+        font-size:26px;
+        cursor:pointer;
+        z-index:1001;
 
     }
 
 
-    .hero-image img{
 
-        position:absolute;
+    /* SIDE MENU */
+
+    nav ul{
+
+        position:fixed;
+
+        top:0;
+        right:-100%;
+
+        width:50%;
+        height:100vh;
+
+        background:rgba(0,0,0,0.15); /* transparent snow glass effect */
+
+        backdrop-filter:blur(8px);
+
+        display:flex;
+        flex-direction:column;
+
+        justify-content:flex-start;
+        align-items:center;
+
+        padding-top:80px;
+
+        gap:20px;
+
+        list-style:none;
+
+        transition:.4s ease;
+
+        z-index:1000;
+
+    }
+
+
+
+    /* WHEN OPEN */
+
+    nav ul.active{
+
+        right:0;
+
+    }
+
+
+
+    /* LINKS */
+
+    nav ul li a{
+
+        color:white;
+
+        text-decoration:none;
+
+        font-size:12px;
+
+        font-weight:500;
+
+    }
+
+
+
+    nav ul li a:hover{
+
+        color:#d88509;
+
+    }
+
+
+
+    /* CLOSE X */
+
+    .close-menu{
 
         display:block;
 
-        opacity:1;
+        position:absolute;
+
+        top:15px;
+
+        right:15px;
+
+        color:#d88509;
+
+        background:transparent;
+
+        border:none;
+
+        font-size:24px;
+
+        cursor:pointer;
+
+        z-index:1002;
 
     }
 
-
-
-    /* MAIN STEAK */
-
-    .hero-image .steak{
-
-        width:260px;
-
-        top:20px;
-
-        left:50%;
-
-        transform:translateX(-50%);
-
-    }
-
-
-
-    /* SALT */
-
-    .hero-image .salt{
-
-        width:150px;
-
-        top:180px;
-
-        left:50%;
-
-        transform:translateX(-50%);
-
-    }
-
-
-
-    /* SPOON */
-
-    .hero-image .spoon{
-
-        width:75px;
-
-        top:190px;
-
-        left:65%;
-
-    }
-
-
-
-    /* TOMATO */
-
-    .hero-image .tomato{
-
-        width:35px;
-
-        top:215px;
-
-        left:72%;
-
-    }
-
-
-
-    /* ONION */
-
-    .hero-image .onion{
-
-        width:55px;
-
-        top:80px;
-
-        left:15%;
-
-    }
-
-
-
-    /* ROSE */
-
-    .hero-image .rose{
-
-        width:50px;
-
-        top:240px;
-
-        left:25%;
-
-    }
 
 }
-
-/* MOBILE MENU FIX */
-
-.menu-toggle{
-
-    display:none;
-    cursor:pointer;
-    color:#d88509;
-    font-size:30px;
-
-}
-
-
-.close-menu{
-
-    display:none;
-    cursor:pointer;
-    color:#d88509;
-    font-size:35px;
-    position:absolute;
-    top:20px;
-    right:25px;
-
-}
-
-
+/* ================= FINAL HERO MOBILE FIX ================= */
 
 @media(max-width:768px){
 
+.hero{
+    padding-top:10px;
+    gap:0;
+}
 
-.menu-toggle{
 
-    display:block;
+.hero-image{
+
+    width:300px;
+    height:240px;
+    margin:-80px auto 0;   /* pushes whole group upward */
+    position:relative;
+    overflow:visible;
 
 }
 
 
-.navbar ul{
+.hero-image img{
 
-    position:fixed;
+    position:absolute;
+    display:block;
+    opacity:1;
+    animation:none;
 
+}
+
+
+/* STEAK */
+.hero-image .steak{
+
+    width:230px;
     top:0;
-    right:-100%;
-
-    width:75%;
-    height:100vh;
-
-    background:#000;
-
-    display:flex;
-
-    flex-direction:column;
-
-    justify-content:center;
-
-    align-items:center;
-
-    gap:30px;
-
-    transition:.5s;
-
-    z-index:1000;
+    left:35px;
+    z-index:5;
 
 }
 
 
+/* SALT */
+.hero-image .salt{
 
-.navbar ul.active{
-
-    right:0;
-
-}
-
-
-
-.close-menu{
-
-    display:block;
+    width:130px;
+    top:100px;
+    left:80px;
+    z-index:2;
 
 }
 
 
+/* SPOON */
+.hero-image .spoon{
+
+    width:65px;
+    top:125px;
+    left:180px;
+    z-index:6;
+
+}
+
+
+/* TOMATO */
+.hero-image .tomato{
+
+    width:32px;
+    top:140px;
+    left:210px;
+    z-index:7;
+
+}
+
+
+/* ONION */
+.hero-image .onion{
+
+    width:50px;
+    top:55px;
+    left:15px;
+    z-index:6;
+
+}
+
+
+/* ROSE */
+.hero-image .rose{
+
+    width:50px;
+    top:135px;
+    left:30px;
+    z-index:8;
+
+}
 }

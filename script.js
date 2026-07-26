@@ -1,22 +1,19 @@
 // ================= RESERVATION BUTTON FUNCTION =================
 
-// SELECT THE RESERVATION BUTTON
 const reserveButton = document.getElementById("reserveBtn");
 
-// ADD CLICK EVENT TO BUTTON
+
 if(reserveButton){
 
-    reserveButton.addEventListener("click", function () {
+    reserveButton.addEventListener("click", function(){
 
         alert(
-            "THANK YOU FOR CHOOSING WINAM STEAKHOUSE. RESERVATION COMING SOON!"
+            "Thank You for Trusting us. Your position is RESERVED."
         );
 
     });
 
 }
-
-
 // ================= STORY IMAGE ANIMATION =================
 
 const storyBox = document.querySelector(".story-box");
