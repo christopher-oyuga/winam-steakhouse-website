@@ -1688,13 +1688,13 @@ color:#d4af37;
     }
 
 
-    .contact-image img{
-        width:120px;       /* smaller size */
-        max-width:120px;
-        height:150px;      /* keeps full image visible */
-        object-fit:contain;
-        border-radius:10px;
-    }
+ .contact-image img{
+    width:220px;
+    max-width:220px;
+    height:270px;
+    object-fit:contain;
+    border-radius:10px;
+}
 
 
     .call-btn{
