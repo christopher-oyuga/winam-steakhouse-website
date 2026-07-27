@@ -1677,23 +1677,27 @@ color:#d4af37;
 
 /* ================= CONTACT IMAGE MOBILE ================= */
 
+
 @media(max-width:768px){
 
     .contact-image{
         width:100%;
-        justify-content:center; /* move image left */
+        display:flex;
+        justify-content:center;
         align-items:center;
         margin-top:20px;
         margin-bottom:10px;
     }
 
 
- .contact-image img{
-    width:220px;
-    max-width:220px;
-    height:270px;
-    object-fit:contain;
-    border-radius:10px;
+    .contact-image img{
+        width:100%;
+        max-width:320px;
+        height:300px;
+        object-fit:contain;
+        border-radius:10px;
+    }
+
 }
 
 
@@ -1701,7 +1705,7 @@ color:#d4af37;
         margin-top:10px;
     }
 
-}
+
 
 /* SOCIAL ICONS */
 
