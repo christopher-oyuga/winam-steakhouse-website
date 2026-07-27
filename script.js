@@ -38,7 +38,7 @@ if (storyBox && storyImage) {
 
     }, {
 
-        threshold:0.3
+        threshold:0
 
     });
 
@@ -76,3 +76,17 @@ if(closeMenu && navLinks){
     });
 
 }
+
+// ================= EVENT OKOMBE =================
+
+const eventImage = document.querySelector(".event-floating-image");
+
+const observer = new IntersectionObserver((entries)=>{
+    entries.forEach(entry=>{
+        if(entry.isIntersecting){
+            eventImage.classList.add("show");
+        }
+    });
+});
+
+observer.observe(document.querySelector(".event-box"));
