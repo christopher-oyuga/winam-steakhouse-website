@@ -724,15 +724,15 @@ color:#d4af37;
     transform:translateX(8px);
 }
 
-/* ================= MOBILE RESPONSIVE ================= */
-
+/* about responsive */
 @media (max-width:768px){
 
     .about{
         flex-direction:column;
-        gap:35px;
-        padding:60px 5%;
+        gap:25px;
+        padding:0 5% 60px;
         min-height:auto;
+        margin-top:-70px;
     }
 
     .about-content{
@@ -750,18 +750,18 @@ color:#d4af37;
         max-width:100%;
         min-height:auto;
         padding:30px 20px 45px;
-        text-align:center;   /* ADD THIS */
+        text-align:center;
     }
 
     .story-box h3,
     .story-box h2{
-        text-align:center;   /* ADD THIS */
+        text-align:center;
     }
 
     .story-box p{
         font-size:14px;
         line-height:1.8;
-        text-align:center;   /* ADD THIS */
+        text-align:center;
     }
 
     .story-box::after{
@@ -804,6 +804,66 @@ color:#d4af37;
         height:80px;
     }
 }
+
+
+/* VERY SMALL DEVICES */
+
+@media (max-width:400px){
+
+    .about{
+        padding:0 4% 50px;
+        margin-top:-85px;
+        gap:20px;
+    }
+
+    .story-box{
+        padding:25px 15px 40px;
+    }
+
+    .story-box h3{
+        font-size:13px;
+    }
+
+    .story-box h2{
+        font-size:21px;
+    }
+
+    .story-box p{
+        font-size:12px;
+        line-height:1.7;
+    }
+
+    .story-image{
+        width:70px;
+        height:70px;
+        top:-10px;
+        left:-5px;
+    }
+
+    .story-box::after{
+        width:90px;
+        height:90px;
+    }
+
+    .main-img{
+        width:85%;
+        max-width:300px;
+    }
+
+    .small-images{
+        gap:7px;
+        margin-top:10px;
+    }
+
+    .small-images img{
+        width:28%;
+        min-width:65px;
+        max-width:90px;
+        height:65px;
+    }
+
+}
+
 /* ================= MENU CARDS ================= */
 /* MENU SECTION */
 .menu{
